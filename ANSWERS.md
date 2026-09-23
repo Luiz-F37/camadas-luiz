@@ -1,6 +1,6 @@
 # Respostas
 
-Nome:
+Nome: Luiz Feix
 
 Como responder: nas questões objetivas, escreva a letra depois de **Resposta:**. A justificativa é opcional, mas ajuda na correção. Nas discursivas, escreva seu texto logo abaixo do enunciado.
 
@@ -38,9 +38,11 @@ D) A asserção I é uma proposição falsa, e a II é uma proposição verdadei
 E) As asserções I e II são proposições falsas.
 
 **Resposta:**
-
+  A
 **Justificativa (opcional):**
-
+  O controller recebe o EmployeeService pelo construtor, em vez de criar ele dentro da própria classe.
+  Assim, quem monta o sistema pode escolher qual implementação vai usar. Isso também facilita os testes, 
+  pois podemos passar um service falso no lugar do service real.
 ---
 
 ### Questão 2
@@ -67,9 +69,10 @@ D) `res.send(\`<h1>${name} created</h1>\`)`
 E) `const net = gross - gross * 0.11`
 
 **Resposta:**
-
+  E
 **Justificativa (opcional):**
-
+  Essa parte é uma regra de negócio, pois faz o cálculo do salário líquido. Por isso, deve ficar no Service, 
+  que é responsável pela lógica do sistema. O Controller fica mais responsável por receber a requisição e enviar a resposta.
 ---
 
 ### Questão 3
@@ -95,9 +98,11 @@ D) I, II e IV, apenas.
 E) I, II, III e IV.
 
 **Resposta:**
-
+  D
 **Justificativa (opcional):**
-
+  A validação do e-mail é de formato, então fica no DTO e, se estiver errado, retorna 400. Já o salário mínimo é uma regra de negócio, 
+  então fica no Service e retorna 422 quando não for atendido. A afirmação III está errada porque essas validações não devem ficar no Repository. 
+  A IV está correta porque a regra do salário mínimo continuaria existindo mesmo sem usar HTTP ou banco.
 ---
 
 ## Parte 4: estudo de caso
@@ -153,7 +158,7 @@ D) A asserção I é uma proposição falsa, e a II é uma proposição verdadei
 E) As asserções I e II são proposições falsas.
 
 **Resposta:**
-
+  
 **Justificativa (opcional):**
 
 ---
