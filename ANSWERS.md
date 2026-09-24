@@ -134,9 +134,11 @@ D) II e III, apenas.
 E) I, II e III.
 
 **Resposta:**
-
+  B
 **Justificativa (opcional):**
-
+  No pedido (a), podemos criar uma nova view e uma rota para gerar o CSV, reaproveitando o Service e os repositórios que já existem. 
+  No pedido (b), o cálculo do INSS é uma regra de negócio, então a mudança fica principalmente no Service, 
+  consultando o estado da empresa. Já no pedido (c), não precisa reescrever o Service para responder em JSON, pois quem cuida da resposta é o Controller.
 ---
 
 ### Questão 5
@@ -158,9 +160,11 @@ D) A asserção I é uma proposição falsa, e a II é uma proposição verdadei
 E) As asserções I e II são proposições falsas.
 
 **Resposta:**
-  
+  C
 **Justificativa (opcional):**
-
+  Na versão monolítica, a mesma rota concentra várias responsabilidades, como receber a requisição, 
+  fazer as regras de negócio, acessar o banco e montar o HTML. Já o TypeScript não impede que uma alteração cause problemas em outras partes do sistema, 
+  pois ele apenas ajuda verificando os tipos do código. Então a II é falsa.
 ---
 
 ### Questão 6 (discursiva)
@@ -176,7 +180,11 @@ c) cite os arquivos do seu projeto que seriam alterados para atendê-lo.
 (Até 10 linhas.)
 
 **Resposta:**
-
+  O pedido que exige mais esforço é o (b), aplicar uma alíquota de INSS diferente conforme o estado da empresa. 
+  A arquitetura em camadas ajuda a organizar o sistema, mas não elimina a necessidade de alterar a regra de negócio. 
+  Nesse caso, o sistema precisa consultar o state da empresa antes de calcular o INSS. Para isso, seriam alterados principalmente 
+  os arquivos employee.service.ts e, se necessário, company.repository.ts para garantir o acesso ao estado da empresa. Assim, a mudança 
+  fica concentrada nas partes responsáveis pela regra e pelos dados.
 ---
 
 ### Questão 7 (discursiva)
@@ -192,3 +200,7 @@ c) descreva como você corrigiu, ou como corrigiria.
 (Até 10 linhas.)
 
 **Resposta:**
+  O erro que cheguei mais perto de cometer foi deixar muita responsabilidade no Controller. 
+  Isso poderia acontecer no arquivo employee.controller.ts, principalmente no método create, 
+  colocando nele validações e cálculos do salário. Corrigi deixando a validação no employeeDTO e a regra do salário e do INSS no employee.service.ts. 
+  O Controller ficou responsável apenas por receber a requisição, chamar o Service e enviar a resposta. Dessa forma, cada parte fica com sua responsabilidade e o código fica mais organizado.
